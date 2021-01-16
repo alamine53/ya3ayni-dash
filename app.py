@@ -16,7 +16,8 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
-df = pd.read_csv('standings.csv')
+url = "https://raw.githubusercontent.com/alamine53/espn-scrape/main/standings.csv"
+df = pd.read_csv(url)
 
 # drop nas
 df = df[df['Team'].notna()]
@@ -210,7 +211,7 @@ app.layout = html.Div(children=[
     Input('team-selection', 'value'),
     Input('chart-selection', 'value'))
 def update_dashboard(team_name, per_game):
-	df = pd.read_csv('standings.csv')
+	df = pd.read_csv(url)
 
 	# drop nas
 	df = df[df['Team'].notna()]
