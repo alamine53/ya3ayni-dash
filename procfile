@@ -1,1 +1,1 @@
-web: gunicorn app:server
+web: gunicorn ya3ayni-dash:server
